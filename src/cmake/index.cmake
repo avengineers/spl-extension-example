@@ -1,6 +1,7 @@
 function(spl_extension_example)
-    set(multiValueArgs INPUTS OUTPUTS)
-    cmake_parse_arguments(EXAMPLE "" "" "${multiValueArgs}" ${ARGN} )
-    message(EXAMPLE_INPUTS: "${EXAMPLE_INPUTS}")
-    message(EXAMPLE_OUTPUTS: "${EXAMPLE_OUTPUTS}")
+    if(NOT SPL_EXTENSION_EXAMPLE_INPUT_VARIABLE)
+        message(FATAL_ERROR "SPL_EXTENSION_EXAMPLE_INPUT_VARIABLEis not existing, but a mandatory input argument.")
+    endif()
+
+    message("SPL_EXTENSION_EXAMPLE_INPUT_VARIABLE: ${SPL_EXTENSION_EXAMPLE_INPUT_VARIABLE}")
 endfunction(spl_extension_example)
